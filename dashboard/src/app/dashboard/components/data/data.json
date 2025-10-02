@@ -1,0 +1,196 @@
+{
+  "ventasMensuales": [
+    { "mes": "Enero", "ventas": 4200 },
+    { "mes": "Febrero", "ventas": 3800 },
+    { "mes": "Marzo", "ventas": 5100 },
+    { "mes": "Abril", "ventas": 4600 },
+    { "mes": "Mayo", "ventas": 5400 },
+    { "mes": "Junio", "ventas": 7200 },
+    { "mes": "Julio", "ventas": 6100 },
+    { "mes": "Agosto", "ventas": 2900 },
+    { "mes": "Septiembre", "ventas": 6800 },
+    { "mes": "Octubre", "ventas": 6300 },
+    { "mes": "Noviembre", "ventas": 7100 },
+    { "mes": "Diciembre", "ventas": 7500 }
+  ],
+  "categorias": [
+    { "nombre": "Teléfonos inteligentes", "valor": 5200 },
+    { "nombre": "Portátiles", "valor": 4300 },
+    { "nombre": "Muebles", "valor": 3100 },
+    { "nombre": "Belleza y Cuidado Personal", "valor": 2700 },
+    { "nombre": "Accesorios de Juego", "valor": 2200 }
+  ],
+  "estadoPedidos": [
+    { "nombre": "Pendiente", "valor": 60 },
+    { "nombre": "Procesando", "valor": 45 },
+    { "nombre": "Cancelado", "valor": 30 },
+    { "nombre": "Entregado", "valor": 120 }
+  ],
+  "rendimientoProductos": [
+    { "nombre": "Teléfono inteligente", "Retención": 5200, "Ingresos": 3100, "Ganancia": 2800 },
+    { "nombre": "Portátil", "Retención": 4300, "Ingresos": 2700, "Ganancia": 3400 },
+    { "nombre": "Mesa de café", "Retención": 3100, "Ingresos": 6900, "Ganancia": 4100 },
+    { "nombre": "Ratón", "Retención": 2500, "Ingresos": 4200, "Ganancia": 2700 },
+    { "nombre": "Zapatillas deportivas", "Retención": 2000, "Ingresos": 9000, "Ganancia": 2900 }
+  ],
+  "pedidos": [
+    {
+      "id": "#A7B9D31",
+      "cliente": "Ethan Carter",
+      "correo": "Ethan.Carter@ejemplo.com",
+      "total": 174.5,
+      "estado": "Entregado",
+      "fecha": "30 Ene, 2025",
+      "pais": "Estados Unidos"
+    },
+    {
+      "id": "#X4Y2Z85",
+      "cliente": "Sophia Mitchell",
+      "correo": "Sophia.Mitchell@ejemplo.co.uk",
+      "total": 632.0,
+      "estado": "Pendiente",
+      "fecha": "23 Feb, 2025",
+      "pais": "Reino Unido"
+    },
+    {
+      "id": "#M6N3P74",
+      "cliente": "Liam Harrison",
+      "correo": "Liam.Harrison@ejemplo.de",
+      "total": 202.5,
+      "estado": "Entregado",
+      "fecha": "25 Dic, 2024",
+      "pais": "Alemania"
+    },
+    {
+      "id": "#K9L8T62",
+      "cliente": "Ava Bennett",
+      "correo": "Ava.Bennett@ejemplo.in",
+      "total": 330.0,
+      "estado": "Cancelado",
+      "fecha": "22 Mar, 2025",
+      "pais": "India"
+    },
+    {
+      "id": "#Q5R7W30",
+      "cliente": "Noah Reynolds",
+      "correo": "Noah.Reynolds@ejemplo.au",
+      "total": 595.5,
+      "estado": "Entregado",
+      "fecha": "5 Mar, 2025",
+      "pais": "Australia"
+    }
+  ],
+  "estadisticasPedidos": [
+    { "nombre": "Pedidos Totales", "valor": "15,240", "icono": "ShoppingBag" },
+    { "nombre": "Pedidos Completados", "valor": "13,500", "icono": "CheckCircle" },
+    { "nombre": "Pedidos Pendientes", "valor": "1,120", "icono": "Clock" },
+    { "nombre": "Pedidos Cancelados", "valor": "620", "icono": "Ban" }
+  ],
+  "productos": [
+    {
+      "id": "#A7F3D67",
+      "nombre": "Teléfono inteligente",
+      "categoria": "Electrónica",
+      "precio": 699.99,
+      "stock": 120,
+      "ventas": 5200,
+      "imagen": "/images/phone.jpg"
+    },
+    {
+      "id": "#B6E4F24",
+      "nombre": "Portátil",
+      "categoria": "Electrónica",
+      "precio": 1299.99,
+      "stock": 75,
+      "ventas": 4300,
+      "imagen": "/images/laptop.jpg"
+    },
+    {
+      "id": "#C5D2A89",
+      "nombre": "Mesa de café",
+      "categoria": "Hogar",
+      "precio": 249.99,
+      "stock": 95,
+      "ventas": 3100,
+      "imagen": "/images/table.jpg"
+    },
+    {
+      "id": "#D4B7C34",
+      "nombre": "Ratón",
+      "categoria": "Electrónica",
+      "precio": 49.99,
+      "stock": 180,
+      "ventas": 2500,
+      "imagen": "/images/mouse.jpg"
+    },
+    {
+      "id": "#E3A5623",
+      "nombre": "Zapatillas deportivas",
+      "categoria": "Deportes",
+      "precio": 119.99,
+      "stock": 200,
+      "ventas": 2000,
+      "imagen": "/images/shoes.jpg"
+    }
+  ],
+  "ventasPorCategoria": [
+    { "nombre": "Electrónica", "valor": 400 },
+    { "nombre": "Ropa", "valor": 300 },
+    { "nombre": "Hogar y Jardín", "valor": 200 },
+    { "nombre": "Libros", "valor": 100 },
+    { "nombre": "Otros", "valor": 150 }
+  ],
+  "clientes": [
+    {
+      "id": 1,
+      "nombre": "Ethan Carter",
+      "correo": "Ethan.Carter@ejemplo.com",
+      "telefono": "+1 415-678-9023",
+      "pais": "Estados Unidos",
+      "imagen": "/images/user1.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "Sophia Mitchell",
+      "correo": "Sophia.Mitchell@ejemplo.com",
+      "telefono": "+44 7911 123456",
+      "pais": "Reino Unido",
+      "imagen": "/images/user2.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Liam Harrison",
+      "correo": "Liam.Harrison@ejemplo.com",
+      "telefono": "+49 1523 4567890",
+      "pais": "Alemania",
+      "imagen": "/images/user3.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Ava Bennett",
+      "correo": "Ava.Bennett@ejemplo.com",
+      "telefono": "+91 98765 43210",
+      "pais": "India",
+      "imagen": "/images/user4.jpg"
+    },
+    {
+      "id": 5,
+      "nombre": "Noah Reynolds",
+      "correo": "Noah.Reynolds@ejemplo.com",
+      "telefono": "+61 412 345 678",
+      "pais": "Australia",
+      "imagen": "/images/user5.jpg"
+    }
+  ],
+  "menuLateral": [
+    { "nombre": "Panel", "icono": "House", "ruta": "/" },
+    { "nombre": "Productos", "icono": "ShoppingBag", "ruta": "/products" },
+    { "nombre": "Clientes", "icono": "Users", "ruta": "/users" },
+    { "nombre": "Ventas", "icono": "DollarSign", "ruta": "/sales" },
+    { "nombre": "Pedidos", "icono": "ShoppingCart", "ruta": "/orders" },
+    { "nombre": "Configuración", "icono": "Settings", "ruta": "" },
+    { "nombre": "Mensajes", "icono": "Mail", "ruta": "" },
+    { "nombre": "Notificaciones", "icono": "Bell", "ruta": "" },
+    { "nombre": "Ayuda", "icono": "Info", "ruta": "" }
+  ]
+}
