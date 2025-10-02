@@ -1,0 +1,45 @@
+@startuml
+actor "Usuario" as usuario
+participant "Interfaz" as api
+box "Capa controladora" #LightBlue
+
+participant "DocumentoController" as docCtrl
+
+end box
+box "Capa de Servicio" #LightGreen
+
+participant "DocumentoService" as docSvc
+
+end box
+box "Capa Repositorio"
+participant "DocumentoRepository" as repo
+end box
+database "Base de Datos" as db
+' Flujo de búsqueda de documentos (Usuario)
+group Búsqueda de Documentos
+    usuario-> api : GET /api/documentos?query=criterio
+    activate api
+    note right: Método HTTP: GET\nHeader: Authorization: Bearer {token}
+
+    api -> docCtrl : procesarSolicitud(GET, /api/documentos)
+    activate docCtrl
+
+    docCtrl -> docSvc : buscarDocumentos(criterios)
+    activate docSvc
+
+    docSvc -> repo : FindBycriterio()
+    activate repo
+     repo -> db : consultaJpa
+    deactivate repo
+   
+    db --> docSvc : return listaDocumentos
+    deactivate db
+
+    docSvc --> docCtrl : return listaDocumentosDTO
+    deactivate docSvc
+
+    docCtrl --> api : return ResponseEntity()
+    deactivate docCtrl
+
+
+@enduml

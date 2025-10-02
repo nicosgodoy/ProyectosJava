@@ -1,0 +1,20 @@
+@startuml
+|Administrador|
+start
+
+fork
+    :Gestionar usuarios;
+fork again
+    :Gestionar bibliotecas;
+
+end fork
+
+|Sistema|
+    if ("Crear, modificar o eliminar") then (Si);
+        :Registrar en la base de datos;
+    else (No)
+        :Listado de usuarios;
+    endif
+
+stop
+@enduml

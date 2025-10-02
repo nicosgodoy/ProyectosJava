@@ -1,0 +1,171 @@
+/* ListaRoles.css */
+
+:root {
+  --primary-blue: #2563eb;
+  --primary-blue-hover: #1d4ed8;
+  --accent-blue: #0ea5e9;
+  --error: #ef4444;
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-900: #111827;
+
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --transition: all 0.2s ease-in-out;
+}
+
+/* Contenedor principal */
+.lista-roles-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.lista-roles-container h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.lista-roles-subtitle {
+  color: var(--gray-600);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Estados de carga y error */
+.loading,
+.error {
+  text-align: center;
+  padding: 3rem;
+  margin: 2rem auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+  max-width: 600px;
+}
+
+.loading-content {
+  font-size: 1rem;
+  color: var(--gray-600);
+}
+
+.error {
+  background: #fef2f2;
+  color: var(--error);
+  border-color: var(--error);
+}
+
+/* Grid de roles */
+.roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.role-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.role-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-blue);
+  transform: translateY(-2px);
+}
+
+.role-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.role-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.role-id {
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.role-description {
+  padding: 1.5rem;
+  font-size: 0.9375rem;
+  color: var(--gray-700);
+  flex-grow: 1;
+}
+
+.role-status {
+  padding: 1rem;
+  background: var(--gray-50);
+  font-size: 0.8125rem;
+  color: var(--gray-500);
+  font-weight: 500;
+  border-top: 1px solid var(--gray-100);
+  text-align: center;
+}
+
+/* Estado vacío */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background: var(--gray-50);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.empty-state-title {
+  font-size: 1.25rem;
+  color: var(--gray-900);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-text {
+  font-size: 0.9375rem;
+  color: var(--gray-500);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+  .lista-roles-container {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lista-roles-container h1 {
+    font-size: 1.5rem;
+  }
+}

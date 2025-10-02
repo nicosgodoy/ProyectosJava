@@ -1,0 +1,8 @@
+"backend/docintelia/logs/docintelia.log" 
+b a c k e n d / d o c i n t e l i a / l o g s / 
+ backend/docintelia/logs/*.log*
+backend/docintelia/lucene_index/
+backend/docintelia/uploads/
+backend/docintelia/logs/docintelia.log.2025-09-15.0.gz
+backend/docintelia/logs/docintelia.log.2025-09-16.0.gz
+ 

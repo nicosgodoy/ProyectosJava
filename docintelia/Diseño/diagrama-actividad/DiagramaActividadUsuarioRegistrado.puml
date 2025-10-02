@@ -1,0 +1,20 @@
+@startuml
+|Usuario registrado|
+start
+
+fork
+  :Buscar documento;
+  :Ingresa parámetros de búsqueda;
+
+  |Sistema|
+  :Realiza búsqueda;
+  :Listado de documentos;
+fork again
+  :Subir documento;
+end fork
+
+|Sistema|
+:Visualizar documento;
+
+stop
+@enduml

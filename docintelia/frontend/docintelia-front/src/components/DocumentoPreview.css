@@ -1,0 +1,50 @@
+.documento-preview-container {
+  display: flex;
+  flex-direction: row;   /* Ahora horizontal */
+  height: 100vh;
+  gap: 20px;             /* Espacio entre columnas */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.documento-preview-header {
+  flex: 1;               /* Metadata ocupa menos espacio */
+  max-width: 300px;
+}
+
+.download-button {
+  padding: 8px 16px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: #357bd2;
+}
+
+.documento-preview-iframe {
+  flex: 3;               /* Ocupa más espacio */
+  border: 1px solid #ccc;
+  width: 100%;           /* Que se adapte */
+  height: 90vh;          /* Alto casi toda la pantalla */
+}
+
+/* 📱 Responsive: en móviles vuelve a columna */
+@media (max-width: 768px) {
+  .documento-preview-container {
+    flex-direction: column;
+  }
+
+  .documento-preview-header {
+    max-width: 100%;
+  }
+
+  .documento-preview-iframe {
+    height: 60vh;
+  }
+}

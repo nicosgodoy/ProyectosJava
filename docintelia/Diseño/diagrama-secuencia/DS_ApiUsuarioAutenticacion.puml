@@ -1,0 +1,50 @@
+@startuml
+
+ actor "Usuario" as usuario
+ box "API REST" #LightBlue
+ participant "Interfaz" as api
+ participant "UsuarioController" as userCtrl
+ participant "DocumentoController" as docCtrl
+ participant "BibliotecaController" as bibCtrl
+
+ end box
+ box "Capa de Servicio" #LightGreen
+ participant "UsuarioService" as userSvc
+ participant "DocumentoService" as docSvc
+ participant "BibliotecaService" as bibSvc
+ end box
+ box "Capa Repositorio"
+ participant "Repository" as repo
+ end box
+ database "Base de Datos" as db
+
+ ' Flujo de autenticación
+ group Autenticación
+     usuario -> api : GET /auth/login
+     activate api
+
+
+     api -> userCtrl : procesarSolicitud(GET, /auth/login)
+     activate userCtrl
+
+     userCtrl -> userSvc : validarCredenciales(email, contraseña)
+     activate userSvc
+
+     userSvc -> repo : autenticar (usuario,contraseña)
+     activate repo
+     repo -> db : consulta Jpa
+     deactivate repo
+     db --> userSvc : return datosUsuario
+     deactivate db
+
+     userSvc -> userSvc : verificarDatosUsuario()
+
+     userSvc --> userCtrl : return validacion
+     deactivate userSvc
+
+     userCtrl --> api : return ResponseEntity
+     deactivate userCtrl
+
+     api --> usuario : return OK
+     deactivate api
+@enduml

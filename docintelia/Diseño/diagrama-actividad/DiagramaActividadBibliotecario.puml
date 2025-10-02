@@ -1,0 +1,33 @@
+@startuml
+|Bibliotecario|
+start
+
+fork
+    :Gestionar documentos;
+    :Selecciona biblioteca;
+    :Proporciona datos;
+    |Sistema|
+
+    if ("Subir, eliminar documento o directorio") then (yes)
+        :Registrar en Base de datos;
+
+    else (No)
+        :Listado de documentos;
+
+    endif
+
+    :Visualizar Documento;
+
+
+fork again
+
+|Bibliotecario|
+:Buscar documento;
+:Ingresa parametros de busqueda;
+|Sistema|
+:Realiza busqueda;
+:Listado de documentos;
+:Visualizar documento;
+end fork
+stop
+@enduml

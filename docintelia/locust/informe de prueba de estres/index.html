@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Informe de Pruebas de Rendimiento – API Docintelia</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 40px auto;
+      max-width: 900px;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #005B9F;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .section p {
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #e6f0fa;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      text-align: center;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h1>Informe de Pruebas de Rendimiento – API Docintelia</h1>
+  <p><strong>Fecha:</strong> 27 de julio de 2025</p>
+  <div class="section">
+        <img src="total_requests_per_second_1753618345.83.png" height="700px" alt="graficos">
+    </div>
+  <div class="section">
+    <h2>Tipo de prueba realizada</h2>
+    <p>Se llevó a cabo una prueba de carga y estrés sobre la API del sistema Docintelia, para evaluar su rendimiento bajo condiciones intensas de uso concurrente.</p>
+  </div>
+
+  <div class="section">
+    <h2>Objetivo</h2>
+    <p>Medir la capacidad de respuesta, estabilidad y robustez de la API al recibir múltiples solicitudes simultáneas.</p>
+  </div>
+
+  <div class="section">
+    <h2>Herramienta utilizada</h2>
+    <p>Se utilizó <strong>Locust</strong>, una herramienta de prueba de carga basada en Python, que permite simular usuarios concurrentes e interpretar estadísticas en tiempo real desde una interfaz web.</p>
+  </div>
+
+  <div class="section">
+    <h2>Parámetros de la prueba</h2>
+    <table>
+      <tr><th>Parámetro</th><th>Valor</th></tr>
+      <tr><td>Host objetivo</td><td>http://localhost:8080</td></tr>
+      <tr><td>Endpoint evaluado</td><td>GET /api/documento/buscar</td></tr>
+      <tr><td>Usuarios simulados</td><td>100</td></tr>
+      <tr><td>Duración aproximada</td><td>~15 minutos</td></tr>
+      <tr><td>Solicitudes por segundo</td><td>Hasta 65.9 RPS</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Resultados clave</h2>
+    <table>
+      <tr><th>Métrica</th><th>Valor</th></tr>
+      <tr><td>Solicitudes totales</td><td>38,485</td></tr>
+      <tr><td>Solicitudes con error</td><td>0 (0.0%)</td></tr>
+      <tr><td>Tiempo promedio de respuesta</td><td>18.09 ms</td></tr>
+      <tr><td>Tiempo mínimo / máximo</td><td>9 ms / 1705 ms</td></tr>
+      <tr><td>RPS promedio</td><td>65.34</td></tr>
+    </table>
+
+    <h3>Percentiles de tiempo de respuesta</h3>
+    <table>
+      <tr>
+        <th>Percentil</th><th>Tiempo (ms)</th>
+      </tr>
+      <tr><td>50%</td><td>16</td></tr>
+      <tr><td>95%</td><td>28</td></tr>
+      <tr><td>99%</td><td>51</td></tr>
+      <tr><td>100%</td><td>1700</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>Conclusión</h2>
+    <p>
+      La API de Docintelia demostró una capacidad destacada para manejar alta concurrencia sin errores.
+      El sistema respondió con gran rapidez: el 99% de las solicitudes se procesó en menos de 51 milisegundos.
+      No se registraron fallos, y el comportamiento fue estable durante toda la prueba.
+    </p>
+    <p>
+      Estos resultados validan que la API está preparada para ambientes exigentes, asegurando eficiencia y fiabilidad en situaciones de uso intensivo.
+    </p>
+  </div>
+
+  <footer>
+    Docintelia - Prueba de Rendimiento realizada con Locust | 2025
+  </footer>
+</body>
+</html>

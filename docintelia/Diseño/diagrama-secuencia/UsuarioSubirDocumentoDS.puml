@@ -1,0 +1,16 @@
+@startuml
+actor Usuario
+boundary "Interfaz de Usuario" as IU
+control Controlador
+entity "Visor PDF" as Visor
+
+Usuario -> IU : Clic en botón "Subir documento"
+IU -> Sistema  : Abrir selector de archivos
+Usuario -> Sistema : Selecciona archivo PDF
+Sistema --> IU : archivoSeleccionado
+IU -> Controlador : cargarArchivo(archivo)
+Controlador -> Visor : mostrarPDF(archivo)
+Visor --> Controlador : confirmaciónVisualización
+Controlador --> IU : actualizarVista()
+
+@enduml

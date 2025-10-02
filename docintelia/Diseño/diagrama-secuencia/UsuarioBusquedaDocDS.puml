@@ -1,0 +1,16 @@
+@startuml
+actor Usuario
+boundary "Interfaz de Usuario" as IU
+control "Controlador" as Controlador
+entity "Servicio de Documentos" as Servicio
+database "Base de Datos" as BD
+
+Usuario -> IU : Ingresar criterio de búsqueda
+IU -> Controlador : solicitarBuscarDocumento get
+Controlador -> Servicio : buscar
+Servicio -> BD : queryDocumentos
+BD --> Servicio : listaDocumentos
+Servicio --> Controlador : listaDocumentos
+Controlador --> IU : mostrarResultados(listaDocumentos)
+IU --> Usuario : Mostrar documentos encontrados
+@enduml

@@ -1,0 +1,44 @@
+@startuml
+actor "Usuario" as usuario
+participant "Interfaz" as int
+box "Capa Controller" #LightBlue
+
+participant "DocumentoController" as docCtrl
+
+end box
+box "Capa de Servicio" #LightGreen
+
+participant "DocumentoService" as docSvc
+
+end box
+box "Capa Repositorio"
+participant "Repository" as repo
+end box
+database "Base de Datos" as db
+
+' Flujo de visualización de documento
+group Visualización de Documento
+    usuario -> int : GET /api/documentos/{id}
+    activate int
+    int -> docCtrl : procesarSolicitud(GET, /api/documentos/{id})
+
+    activate docCtrl
+
+    docCtrl -> docSvc : obtenerDocumento(id)
+    activate docSvc
+
+    docSvc -> repo: FindbyId(id)
+    activate repo
+    repo -> db : ConsultaJpa
+    deactivate repo
+    db --> docSvc : return datosDocumento
+    deactivate db
+
+    docSvc --> docCtrl : return documentoDTO
+    deactivate docSvc
+
+    docCtrl --> int : return ResponseEntity()
+    deactivate docCtrl
+
+
+@enduml

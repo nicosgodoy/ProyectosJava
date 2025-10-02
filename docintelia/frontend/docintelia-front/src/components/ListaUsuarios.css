@@ -1,0 +1,265 @@
+/* ListaUsuarios.css - Tabla moderna */
+
+.users-container {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--gray-200);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.users-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--gray-200);
+  background: var(--gray-50);
+}
+
+.users-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-900);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.users-title::before {
+  content: "👥";
+  font-size: 1.125rem;
+}
+
+.users-table-container {
+  overflow-x: auto;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  background: var(--white);
+}
+
+.users-table th {
+  background: var(--gray-50);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--gray-700);
+  border-bottom: 2px solid var(--gray-200);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.users-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--gray-100);
+  vertical-align: middle;
+}
+
+.users-table tbody tr {
+  transition: var(--transition);
+}
+
+.users-table tbody tr:hover {
+  background: var(--gray-50);
+}
+
+.users-table tbody tr.editing {
+  background: var(--primary-blue-light);
+}
+
+/* Inputs en tabla */
+.table-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  background: var(--white);
+  color: var(--gray-900);
+  transition: var(--transition);
+  outline: none;
+}
+
+.table-input:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.table-select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  background: var(--white);
+  color: var(--gray-900);
+  cursor: pointer;
+  outline: none;
+}
+
+.table-select:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Botones de acción */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.action-btn {
+  padding: 0.375rem 0.75rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 70px;
+  justify-content: center;
+}
+
+.action-btn-edit {
+  background: var(--accent-blue);
+  color: var(--white);
+}
+
+.action-btn-edit:hover {
+  background: #0284c7;
+  transform: translateY(-1px);
+}
+
+.action-btn-save {
+  background: var(--success);
+  color: var(--white);
+}
+
+.action-btn-save:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.action-btn-cancel {
+  background: var(--gray-500);
+  color: var(--white);
+}
+
+.action-btn-cancel:hover {
+  background: var(--gray-600);
+  transform: translateY(-1px);
+}
+
+.action-btn-delete {
+  background: var(--error);
+  color: var(--white);
+}
+
+.action-btn-delete:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+/* Badges para roles */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+.role-badge.admin {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.role-badge.bibliotecario {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.role-badge.usuario {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+/* ID destacado */
+.user-id {
+  font-weight: 600;
+  color: var(--primary-blue);
+  font-family: 'Monaco', 'Menlo', monospace;
+}
+
+/* Estados de carga */
+.loading-state {
+  padding: 3rem;
+  text-align: center;
+  color: var(--gray-500);
+}
+
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--gray-300);
+  border-radius: 50%;
+  border-top-color: var(--primary-blue);
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .users-header {
+    padding: 1rem 1.5rem;
+  }
+  
+  .users-table th,
+  .users-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8125rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .action-btn {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .users-table-container {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* En móviles, hacer que la tabla sea más compacta */
+  .users-table th:nth-child(1),
+  .users-table td:nth-child(1) {
+    display: none; /* Ocultar ID en móviles */
+  }
+  
+  .users-title {
+    font-size: 1.125rem;
+  }
+}

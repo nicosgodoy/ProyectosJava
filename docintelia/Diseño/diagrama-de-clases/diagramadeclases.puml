@@ -1,0 +1,149 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+package "Docintelia" {
+
+
+    class Cuenta <<Entity>>{
+        -id_cuenta: long
+        -email:String
+        -contrasenia:String
+        -usuario : Usuario
+        -rol :Rol
+        -biblioteca :Biblioteca
+        + getAuthorities() : Collection
+        + getPassword() : String
+        + getUsername() : String
+        + isAccountNonExpired() : boolean
+        + isAccountNonLocked() : boolean
+        + isCredentialsNonExpired() : boolean
+        + isEnabled() : boolean
+        +Getter()
+        +Setter()
+    }
+
+    ' Interfaz de Spring Security
+    interface UserDetails {
+        + getAuthorities() : Collection
+        + getPassword() : String
+        + getUsername() : String
+        + isAccountNonExpired() : boolean
+        + isAccountNonLocked() : boolean
+        + isCredentialsNonExpired() : boolean
+        + isEnabled() : boolean
+}
+
+    class Rol <<Entity>{
+        -idRol: Long
+        -rol: Roles
+        -List<Cuenta>listaCuentas
+        +Getter()
+        +Setter()
+
+    }
+    enum Roles {
+        ADMINISTRADOR
+        BIBLIOTECARIO
+        USUARIO_REGISTRADO
+    }
+
+    ' Clase base
+    class Usuario <<Entity>>{
+        - id_usuario: long
+        - nombre: String
+        - apellido:String
+        - cuenta : Cuenta
+        +Getter()
+        +Setter()
+    }
+
+    class Biblioteca <<Entity>{
+            - id_biblioteca: long
+            - nombre: String
+            - descripcion: String
+            -List<Documento> listaDocumento
+            -List<Cuenta> listaCuenta
+            +Getter()
+            +Setter()
+
+        }
+
+        class Documento <<Entity>>{
+            - id_documento: long
+            - titulo: String
+            - autor: String
+            - fecha: localDate
+            - editorial: String
+            - idioma: String
+            - rutaArchivo: String
+            - biblioteca: Biblioteca
+            +Getter()
+            +Setter()
+        }
+
+            Rol --> Cuenta
+            Usuario --> Cuenta
+            Cuenta -->Biblioteca
+            Biblioteca -->Documento
+            Roles -->Rol
+
+    ' Implementación de interfaz
+        Cuenta ..|> UserDetails        
+
+
+    ' Subclase para usuarios con cuenta
+    /'class UsuarioRegistrado {
+        - contrasenia: String
+        + descargar(doc: Documento): void
+        + administrarPerfil(nombre: String, correo: String, contrasenia: String): void
+    }
+
+    class Administrador {
+        + crearUsuario(Usuario): void
+        + modificarUsuario(Usuario): void
+        + eliminarUsuario(Usuario): void
+        + buscarUsuarios(): List<Usuario>
+        + administrarBiblioteca(): void
+    }
+
+    class Bibliotecario {
+        + subirDocumento(doc: Documento): void
+        + eliminarDocumento(doc: Documento): void
+        + gestionarDocumentos(): void
+        + administrarBiblioteca(): void
+    }'/
+
+
+/'
+    class DocumentoBiblioteca{
+        - id_documento_biblioteca: long
+        - List<Documento> listaDocumentos
+        - List<Biblioteca> listaBiblio
+        + Getter()
+        + Setter()
+    }'/
+
+   /' ' Relaciones de herencia
+    Usuario <|-- Cuenta
+    Usuario <|--
+    Usuario <|--'/
+
+    ' Relaciones de uso
+
+
+    /'Rol
+    Biblioteca --> DocumentoBiblioteca
+    Documento --> DocumentoBiblioteca
+    '/
+
+
+    /'
+    Bibliotecario --> Documento : <<gestiona>>
+    Documento --> Biblioteca : <<pertenece a>>
+    Administrador --> Usuario : <<administra>>
+
+    Bibliotecario --> Biblioteca : <<administra>>
+    '/
+
+}
+@enduml

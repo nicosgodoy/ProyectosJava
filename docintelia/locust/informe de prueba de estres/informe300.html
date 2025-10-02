@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Informe de Prueba de Carga - API Lucene</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background-color: #f9f9f9; color: #333; }
+    h1, h2 { color: #2c3e50; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #34495e; color: white; }
+    .section { margin-bottom: 50px; }
+    .alert { color: red; font-weight: bold; }
+    .ok { color: green; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h1>📄 Informe Técnico de Prueba de Carga</h1>
+  <div class="section">
+    <h2>🧪 Parámetros de la prueba</h2>
+    <table>
+      <tr><th>Fecha</th><td>29/07/2025</td></tr>
+      <tr><th>Duración</th><td>7 minutos y 8 segundos</td></tr>
+      <tr><th>Script</th><td>locustfile.py</td></tr>
+      <tr><th>Host</th><td>http://localhost:8080</td></tr>
+      <tr><th>Endpoint probado</th><td>GET /api/documento/buscar</td></tr>
+      <tr><th>Usuarios totales simulados</th><td>300</td></tr>
+      <tr><th>Tasa de aparición</th><td>2 usuarios por segundo</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>📊 Estadísticas generales</h2>
+    <table>
+      <tr><th>Métrica</th><th>Valor</th></tr>
+      <tr><td>Total de solicitudes</td><td>1.244</td></tr>
+      <tr><td>Fallas detectadas</td><td class="alert">250 (20.09%)</td></tr>
+      <tr><td>Promedio de respuesta</td><td class="alert">41.267 ms</td></tr>
+      <tr><td>Minimo / Máximo</td><td>4.127 ms / 77.587 ms</td></tr>
+      <tr><td>Tamaño medio de respuesta</td><td>7.331 bytes</td></tr>
+      <tr><td>Solicitudes por segundo (RPS)</td><td>2.9</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>⏱️ Percentiles de tiempo de respuesta</h2>
+    <table>
+      <tr><th>Percentil</th><th>Tiempo (ms)</th></tr>
+      <tr><td>50%</td><td>36.000</td></tr>
+      <tr><td>60%</td><td>38.000</td></tr>
+      <tr><td>70%</td><td>44.000</td></tr>
+      <tr><td>80%</td><td>54.000</td></tr>
+      <tr><td>90%</td><td>63.000</td></tr>
+      <tr><td>95%</td><td>69.000</td></tr>
+      <tr><td>99%</td><td>75.000</td></tr>
+      <tr><td>100%</td><td>77.000</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>❌ Estadísticas de errores</h2>
+    <table>
+      <tr><th>Código</th><th>Tipo</th><th>Frecuencia</th></tr>
+      <tr><td>403</td><td>Prohibido (token inválido o malformado)</td><td>8</td></tr>
+      <tr><td>500</td><td>Error interno del servidor</td><td>242</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>🧠 Análisis</h2>
+    <ul>
+      <li><strong>El sistema soporta hasta 250 usuarios sin fallos visibles.</strong></li>
+      <li>Al superar los 250 usuarios, comienzan a aparecer errores HTTP 500 por saturación del backend.</li>
+      <li>Los errores 403 sugieren fallos en la autenticación (probable token mal enviado).</li>
+      <li><strong>Tiempo de respuesta promedio > 40 segundos</strong>, indicando severo cuello de botella.</li>
+      <li>La caída del RPS de 65 a 2.9 confirma pérdida de rendimiento.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>✅ Conclusión</h2>
+    <p>
+      La API <code>/api/documento/buscar</code> muestra un rendimiento sólido hasta los <strong>250 usuarios concurrentes</strong>. A partir de ese punto, el sistema entra en un estado de saturación que provoca errores del servidor, demoras extremas en las respuestas y caídas en la capacidad de atención. Se recomienda optimización del backend, mejor manejo de errores y posiblemente escalamiento horizontal para manejar cargas superiores.
+    </p>
+  </div>
+
+</body>
+</html>

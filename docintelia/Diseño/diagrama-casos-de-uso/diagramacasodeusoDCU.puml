@@ -1,0 +1,64 @@
+@startuml
+
+  left to right direction
+ actor Administrador as admin #blue
+ actor Bibliotecario as biblio #red
+ actor Usuario as us
+ actor "Usuario no Logeado" as usnol #green
+
+  package Docintelia {
+ usecase "Gestionar Usuario" as UC1
+ usecase "Registrar Usuario" as UC2
+ usecase "Logear Usuario" as UC3
+ usecase "Gestionar Biblioteca" as UC4
+ usecase "Gestionar Documento" as UC5
+ usecase "Buscar Documento" as UC6
+ usecase "Configurar Perfil" as UC7
+ usecase "Visualizar Documento" as UC8
+ usecase "Descargar Documento" as UC9
+ usecase "Crear Usuario" as UC10
+ usecase "Buscar Usuario" as UC11
+ usecase "Modificar Usuario" as UC12
+ usecase "Eliminar Usuario" as UC13
+ usecase "Modificar Biblioteca" as UC16
+ usecase "Subir Documento" as UC18
+ usecase "Eliminar Documento" as UC19
+ usecase "Subir Documento" as UC20
+
+ }
+ UC1 --> UC10: <<include>>
+ UC1 --> UC11: <<include>>
+ UC1 --> UC12: <<include>>
+ UC1 --> UC13: <<include>>
+ UC4 --> UC16: <<include>>
+ UC5 -[#red]-> UC18: <<include>>
+ UC5 -[#red]-> UC19: <<include>>
+ note left of UC5
+Los documentos se gestionan
+dentro de bibliotecas existentes.
+end note
+
+ note left of UC20
+Esta es una funcionalidad a futuro.
+end note
+
+ admin--> UC1 #blue
+admin -->UC4 #blue
+ admin-->UC7  #blue
+
+
+ biblio-->UC5 #red
+ biblio-->UC6 #red
+ biblio-->UC7 #red
+ biblio-->UC8 #red
+ us-->UC2
+ us-->UC6
+ us-->UC7
+ us-->UC8
+ us-->UC9
+ us-->UC20
+ usnol-->UC3 #green
+
+
+
+@enduml
